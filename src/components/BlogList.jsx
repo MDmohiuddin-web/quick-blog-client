@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { blogCategories } from '../assets/assets';
-import { motion } from "motion/react"
+import { motion } from 'framer-motion';
 import BlogCard from './BlogCard';
 import { useAppContext } from '../context/AppContext';
 
@@ -45,7 +45,7 @@ const BlogList = () => {
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 mb-24 mx-8
       sm:mx-16 xl:mx-40'>
         {filteredBlogs().filter((blog) => menu === "All" ? true : blog.category === menu)
-          .map((blog) => <BlogCard key={blog._id} blog={blog} />)}
+          .map((blog, index) => <BlogCard key={blog._id} index={index} blog={blog} />)}
       </div>
     </div>
   );
